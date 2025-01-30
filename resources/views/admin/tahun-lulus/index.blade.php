@@ -9,7 +9,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
-
             height: 800px;
             display: flex;
             flex-direction: column;
@@ -26,7 +25,7 @@
             </div>
             <div class="Username">
                 {{ Auth::user()->name }}           
-             </div>
+            </div>
         </div>
         <div class="menu">
             <div class="menu-item">
@@ -39,27 +38,13 @@
                 <button onclick="window.location='{{ route('admin.TracerKuliah.index') }}';">Tracer Kuliah</button>
             </div>
             <div class="menu-item">
-                <button onclick="window.location='{{ route('admin.TracerKerja.index') }}';">Tracer Kerja</button>            </div>
-        </div>
-        <div class="menu_dropdown">
-            <button class="burger-icon" id="burgerMenu">
-                <img src="{{ asset('icons/dropdown.png') }}" alt="Icons">
-            </button>
-            <ul class="dropdown" id="dropdownMenu">
-                <button onclick="window.location='{{ route('login') }}';" class="dropdown-icon">
-                    <img src="{{ asset('icons/dropdown.png') }}" alt="Icons">
-                </button>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
-                    @csrf
-                    <button type="submit" class="dropdown-icon">
-                        <img src="{{ asset('icons/logout.png') }}" alt="Logout Icon">
-                    </button>
-                </form>
-            </ul>
+                <button onclick="window.location='{{ route('admin.TracerKerja.index') }}';">Tracer Kerja</button>            
+            </div>
         </div>
     </nav>
 
     <div class="container">
+        <h3>Tahun Lulus</h3>  <!-- Added the header -->
         <div class="tmbh">
             <a href="{{ route('tahun-lulus.create') }}" class="btn btn-primary mb-3">Tambah Tahun Lulus</a>    
         </div>
@@ -80,6 +65,13 @@
                     <td>{{ $tahun->keterangan }}</td>
                     <td>
                         <a href="{{ route('tahun-lulus.edit', $tahun->id_tahun_lulus) }}" class="btn btn-warning">Edit</a>
+
+                        <!-- Add Delete Button -->
+                        <form action="{{ route('tahun-lulus.destroy', $tahun->id_tahun_lulus) }}" method="POST" style="display: inline;" onsubmit="return confirm('Apakah Anda yakin ingin menghapus tahun lulus ini?');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
@@ -88,6 +80,7 @@
     </div>
     
     <script src="{{ asset('js/admin.js') }}"></script>
+
     <footer class="footer">
         <div class="footer-content">
             <p>Copyright © 2025-kevin. Hak Cipta. All rights reserved.</p>

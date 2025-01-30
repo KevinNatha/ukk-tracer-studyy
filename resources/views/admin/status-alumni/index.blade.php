@@ -10,7 +10,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
-
             height: 800px;
             display: flex;
             flex-direction: column;
@@ -41,30 +40,16 @@
                 <button onclick="window.location='{{ route('admin.TracerKuliah.index') }}';">Tracer Kuliah</button>
             </div>
             <div class="menu-item">
-                <button onclick="window.location='{{ route('admin.TracerKerja.index') }}';">Tracer Kerja</button>            </div>
-        </div>
-        <div class="menu_dropdown">
-            <button class="burger-icon" id="burgerMenu">
-                <img src="{{ asset('icons/dropdown.png') }}" alt="Icons">
-            </button>
-            <ul class="dropdown" id="dropdownMenu">
-                <button onclick="window.location='{{ route('login') }}';" class="dropdown-icon">
-                    <img src="{{ asset('icons/dropdown.png') }}" alt="Icons">
-                </button>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
-                    @csrf
-                    <button type="submit" class="dropdown-icon">
-                        <img src="{{ asset('icons/logout.png') }}" alt="Logout Icon">
-                    </button>
-                </form>
-            </ul>
+                <button onclick="window.location='{{ route('admin.TracerKerja.index') }}';">Tracer Kerja</button>
+            </div>
         </div>
     </nav>
 
     <div class="container">
+        <h2>Status Alumni</h2> <!-- Menambahkan judul Status Alumni -->
         <div class="tmbh">
             <a href="{{ route('status-alumni.create') }}" class="btn btn-primary mb-3">Add Status</a>
-        </div>
+        </div>        
         <table class="table">
             <thead>
                 <tr>
@@ -78,15 +63,21 @@
                     <tr>
                         <td>{{ $status->id_status_alumni }}</td>
                         <td>{{ $status->status }}</td>
-                        <td>
-                            <a href="{{ route('status-alumni.edit', $status->id_status_alumni) }}"
-                                class="btn btn-warning">Edit</a>
+                        <td class="action">
+                            <a href="{{ route('status-alumni.edit', $status->id_status_alumni) }}" class="btn btn-warning">Edit</a>
+                            <!-- Tombol Hapus -->
+                            <form action="{{ route('status-alumni.destroy', $status->id_status_alumni) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this status?')">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+
     <script src="{{ asset('js/admin.js') }}"></script>
     <footer class="footer">
         <div class="footer-content">

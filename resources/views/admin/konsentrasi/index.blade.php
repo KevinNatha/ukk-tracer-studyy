@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +10,14 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
-        
             height: 800px;
             display: flex;
-             flex-direction: column;
+            flex-direction: column;
             margin: 0;
         }
     </style>
 </head>
+
 <body>
 
     <nav>
@@ -25,8 +26,8 @@
                 <img src="{{ asset('images/logo.png') }}" alt="Logo">
             </div>
             <div class="Username">
-                {{ Auth::user()->name }}           
-             </div>
+                {{ Auth::user()->name }}
+            </div>
         </div>
         <div class="menu">
             <div class="menu-item">
@@ -39,61 +40,47 @@
                 <button onclick="window.location='{{ route('admin.TracerKuliah.index') }}';">Tracer Kuliah</button>
             </div>
             <div class="menu-item">
-                <button onclick="window.location='{{ route('admin.TracerKerja.index') }}';">Tracer Kerja</button>            </div>
-        </div>
-        <div class="menu_dropdown">
-            <button class="burger-icon" id="burgerMenu">
-                <img src="{{ asset('icons/dropdown.png') }}" alt="Icons">
-            </button>
-            <ul class="dropdown" id="dropdownMenu">
-                <button onclick="window.location='{{ route('login') }}';" class="dropdown-icon">
-                    <img src="{{ asset('icons/dropdown.png') }}" alt="Icons">
-                </button>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
-                    @csrf
-                    <button type="submit" class="dropdown-icon">
-                        <img src="{{ asset('icons/logout.png') }}" alt="Logout Icon">
-                    </button>
-                </form>
-            </ul>
+                <button onclick="window.location='{{ route('admin.TracerKerja.index') }}';">Tracer Kerja</button>
+            </div>
         </div>
     </nav>
 
     <div class="container">
-    <h1>Daftar Konsentrasi Keahlian</h1>
-    <div class="tmbh">
-        <a href="{{ route('konsentrasi.create') }}">Tambah Baru</a>
+        <h1>Daftar Konsentrasi Keahlian</h1>
+        <div class="tmbh">
+            <a href="{{ route('konsentrasi.create') }}">Tambah Baru</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Program Keahlian</th>
+                    <th>Kode</th>
+                    <th>Nama</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($konsentrasiKeahlian as $item)
+                <tr>
+                    <td>{{ $item->id_konsentrasi_keahlian }}</td>
+                    <td>{{ $item->id_program_keahlian }}</td>
+                    <td>{{ $item->kode_konsentrasi_keahlian }}</td>
+                    <td>{{ $item->konsentrasi_keahlian }}</td>
+                    <td>
+                        <a href="{{ route('konsentrasi.edit', $item->id_konsentrasi_keahlian) }}" class="btn btn-primary">Edit</a>
+                        <form action="{{ route('konsentrasi.destroy', $item->id_konsentrasi_keahlian) }}" method="POST" style="display:inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Hapus</button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Program Keahlian</th>
-                <th>Kode</th>
-                <th>Nama</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($konsentrasiKeahlian as $item)
-            <tr>
-                <td>{{ $item->id_konsentrasi_keahlian }}</td>
-                <td>{{ $item->id_program_keahlian }}</td>
-                <td>{{ $item->kode_konsentrasi_keahlian }}</td>
-                <td>{{ $item->konsentrasi_keahlian }}</td>
-                <td>
-                    <a href="{{ route('konsentrasi.edit', $item->id_konsentrasi_keahlian) }}" class="btn btn-primary">Edit</a>
-                    <form action="{{ route('konsentrasi.destroy', $item->id_konsentrasi_keahlian) }}" method="POST" style="display:inline-block;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Hapus</button>
-                    </form>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
+
     <script src="{{ asset('js/admin.js') }}"></script>
     <footer class="footer">
         <div class="footer-content">
@@ -108,5 +95,7 @@
             </div>
         </div>
     </footer>
+
 </body>
+
 </html>

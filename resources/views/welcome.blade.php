@@ -14,48 +14,18 @@
     <nav>
         <div class="profile">
             <div class="logo">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo">
+                <img src="{{ asset('images/user.png') }}" alt="user">
             </div>
             <div class="login">
                 <button onclick="window.location='{{ route('login') }}';">Login</button>
             </div>
         </div>
-        <div class="menu">
-            <div class="menu-item">
-                {{-- <button onclick="window.location='{{ route('admin.dashboard') }}';">Home</button> --}}
-            </div>
-            <div class="menu-item">
-                <button onclick="window.location='{{ route('login') }}';">Data Alumni</button>
-            </div>
-            <div class="menu-item">
-                <button onclick="window.location='{{ route('login') }}';">Tracer Kuliah</button>
-            </div>
-            <div class="menu-item">
-                <button onclick="window.location='{{ route('login') }}';">Tracer Kerja</button>
-            </div>
-        </div>
-        <div class="menu_dropdown">
-            <button class="burger-icon" id="burgerMenu">
-                <img src="{{ asset('icons/dropdown.png') }}" alt="Icons">
-            </button>
-            <ul class="dropdown" id="dropdownMenu">
-                <button onclick="window.location='{{ route('login') }}';" class="dropdown-icon">
-                    <img src="{{ asset('icons/dropdown.png') }}" alt="Icons">
-                </button>
-                <button onclick="window.location='{{ route('login') }}';" class="dropdown-icon">
-                    <img src="{{ asset('icons/dropdown.png') }}" alt="Icons">
-                </button>
-            </ul>
-        </div>
     </nav>
     <div class="top-content">
         <div class="info">
-            <h2>Selamat Datang, Alumni</h2>
-            <h3>terimakasih telah bergabung</h3>
-            <h3>disistem Tracer Study</h3>
-            <h3><span> Mohon Lengkapi Data Diri Anda </span></h3>
-            <h3>untuk mendukung pengembangan</h3>
-            <h3>Alumni di masa depan</h3>
+            <h2>Selamat Datang di tracer study</h2>
+            <h3>silahkan login...</h3>
+
         </div>
         <div class="info-profil">
             <div class="tabel-profil">
@@ -77,32 +47,6 @@
             </div>
         </div>
     </div>
-    <div class="chart-info">
-        <h3>Diagram Data Alumni</h3>
-    </div>
-    <div class="chart-section">
-        <div class="chart-container">
-            <canvas id="tracerChart"></canvas>
-        </div>
-        <div class="chart-legend">
-
-            <ul id="legendList"></ul>
-            <p>Jumlah Alumni: 600</p>
-        </div>
-    </div>
-    <div class="chart-info">
-        <h3>Diagram Data Pekerjaan Alumni</h3>
-    </div>
-    <div class="chart-section">
-        <div class="chart-container">
-            <canvas id="tracerChart-kerja"></canvas>
-        </div>
-        <div class="chart-legend">
-
-            <ul id="legendList-kerja"></ul>
-            <p>Jumlah Alumni: 600</p>
-        </div>
-    </div>
     <script src="{{ asset('js/welcome.js') }}"></script>
     <footer class="footer">
         <div class="footer-content">
@@ -118,8 +62,5 @@
         </div>
     </footer>
 </body>
-
-
-
 
 </html>

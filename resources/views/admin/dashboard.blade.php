@@ -15,7 +15,7 @@
     <nav>
         <div class="profile">
             <div class="logo">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo">
+                <img src="{{ asset('images/user.png') }}" alt="user">
             </div>
             <div class="Username">
                 {{ Auth::user()->name }}
@@ -35,31 +35,19 @@
                 <button onclick="window.location='{{ route('admin.TracerKerja.index') }}';">Tracer Kerja</button>
             </div>
         </div>
-        <div class="menu_dropdown">
-            <button class="burger-icon" id="burgerMenu">
-                <img src="{{ asset('icons/dropdown.png') }}" alt="Icons">
+        <!-- Gantilah bagian ini untuk tombol logout -->
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
+            @csrf
+            <button type="submit" class="logout-btn">
+                Logout
             </button>
-            <ul class="dropdown" id="dropdownMenu">
-                <button onclick="window.location='{{ route('login') }}';" class="dropdown-icon">
-                    <img src="{{ asset('icons/dropdown.png') }}" alt="Icons">
-                </button>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
-                    @csrf
-                    <button type="submit" class="dropdown-icon">
-                        <img src="{{ asset('icons/logout.png') }}" alt="Logout Icon">
-                    </button>
-                </form>
-            </ul>
-        </div>
+        </form>
     </nav>
+
     <div class="top-content">
         <div class="info">
-            <h2>Selamat Datang, Admin </h2>
-            <h3>terimakasih telah meluangkan waktu </h3>
-            <h3>disistem Tracer Study</h3>
-            <h3><span> Pantau Data Alumni </span></h3>
-            <h3> dan Laporan Tracer Study </h3>
-            <h3>dengan Mudah</h3>
+            <h2>Selamat Datang Admin...</h2>
+            <h3>Di Tracer Study</h3>
         </div>
         <div class="info-profil">
             <h3>Kelola Data</h3>
@@ -74,33 +62,8 @@
             </div>
         </div>
     </div>
-    <div class="chart-info">
-        <h3>Diagram Data Alumni</h3>
-    </div>
-    <div class="chart-section">
-        <div class="chart-container">
-            <canvas id="tracerChart"></canvas>
-        </div>
-        <div class="chart-legend">
-
-            <ul id="legendList"></ul>
-            <p>Jumlah Alumni: 600</p>
-        </div>
-    </div>
-    <div class="chart-info">
-        <h3>Diagram Data Pekerjaan Alumni</h3>
-    </div>
-    <div class="chart-section">
-        <div class="chart-container">
-            <canvas id="tracerChart-kerja"></canvas>
-        </div>
-        <div class="chart-legend">
-
-            <ul id="legendList-kerja"></ul>
-            <p>Jumlah Alumni: 600</p>
-        </div>
-    </div>
     <script src="{{ asset('js/admin.js') }}"></script>
+
     <footer class="footer">
         <div class="footer-content">
             <p>Copyright © 2025-kevin. Hak Cipta. All rights reserved.</p>
@@ -114,6 +77,7 @@
             </div>
         </div>
     </footer>
+
 </body>
 
 </html>

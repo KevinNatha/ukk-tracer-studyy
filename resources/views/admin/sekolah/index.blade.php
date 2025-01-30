@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         body {
-        
             height: 800px;
             display: flex;
             flex-direction: column;
@@ -16,6 +16,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav>
         <div class="profile">
@@ -23,8 +24,8 @@
                 <img src="{{ asset('images/logo.png') }}" alt="Logo">
             </div>
             <div class="Username">
-                {{ Auth::user()->name }}           
-             </div>
+                {{ Auth::user()->name }}
+            </div>
         </div>
         <div class="menu">
             <div class="menu-item">
@@ -37,25 +38,11 @@
                 <button onclick="window.location='{{ route('admin.TracerKuliah.index') }}';">Tracer Kuliah</button>
             </div>
             <div class="menu-item">
-                <button onclick="window.location='{{ route('admin.TracerKerja.index') }}';">Tracer Kerja</button>            </div>
-        </div>
-        <div class="menu_dropdown">
-            <button class="burger-icon" id="burgerMenu">
-                <img src="{{ asset('icons/dropdown.png') }}" alt="Icons">
-            </button>
-            <ul class="dropdown" id="dropdownMenu">
-                <button onclick="window.location='{{ route('login') }}';" class="dropdown-icon">
-                    <img src="{{ asset('icons/dropdown.png') }}" alt="Icons">
-                </button>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
-                    @csrf
-                    <button type="submit" class="dropdown-icon">
-                        <img src="{{ asset('icons/logout.png') }}" alt="Logout Icon">
-                    </button>
-                </form>
-            </ul>
+                <button onclick="window.location='{{ route('admin.TracerKerja.index') }}';">Tracer Kerja</button>
+            </div>
         </div>
     </nav>
+
     <h1>Daftar Sekolah</h1>
     <div class="tmbh">
         <a href="{{ route('sekolah.create') }}">Tambah Sekolah</a>
@@ -88,12 +75,12 @@
                         <td>{{ $sekolahs->website }}</td>
                         <td>{{ $sekolahs->email }}</td>
                         <td>
-                            <a href="{{ route('sekolah.edit', $sekolahs->id_sekolah) }}">Edit</a> |
+                            <a href="{{ route('sekolah.edit', $sekolahs->id_sekolah) }}" class="btn-edit">Edit</a> |
                             <form action="{{ route('sekolah.destroy', $sekolahs->id_sekolah) }}" method="POST" class="form-hapus" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="button" class="btn-delete" onclick="confirmDelete(this)">Hapus</button>
-                            </form>                        
+                            </form>
                         </td>
                     </tr>
                 @empty
@@ -104,7 +91,7 @@
             </tbody>
         </table>
     </div>
-    
+
     <footer class="footer">
         <div class="footer-content">
             <p>Copyright © 2025-kevin. Hak Cipta. All rights reserved.</p>
@@ -118,10 +105,12 @@
             </div>
         </div>
     </footer>
+
 </body>
 <script src="{{ asset('js/admin.js') }}"></script>
 
 </html>
+
 <script>
     function confirmDelete(button) {
         Swal.fire({

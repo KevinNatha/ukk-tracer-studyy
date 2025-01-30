@@ -10,8 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
-        
-             height: 800px;
+            height: 800px;
             display: flex;
             flex-direction: column;
             margin: 0;
@@ -45,22 +44,15 @@
             </div>
         </div>
         <div class="menu_dropdown">
-            <button class="burger-icon" id="burgerMenu">
-                <img src="{{ asset('icons/dropdown.png') }}" alt="Icons">
-            </button>
-            <ul class="dropdown" id="dropdownMenu">
-                <button onclick="window.location='{{ route('login') }}';" class="dropdown-icon">
-                    <img src="{{ asset('icons/dropdown.png') }}" alt="Icons">
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
+                @csrf
+                <button type="submit" class="logout-btn">
+                    Logout
                 </button>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
-                    @csrf
-                    <button type="submit" class="dropdown-icon">
-                        <img src="{{ asset('icons/logout.png') }}" alt="Logout Icon">
-                    </button>
-                </form>
-            </ul>
+            </form>
         </div>
     </nav>
+    
     <div class="container">
         <h2>Data Tracer Kuliah</h2>
         <table class="table">

@@ -1,163 +1,181 @@
 :root {
-    --text-color: #000000;
-    --bg-input-color: hsl(207, 43%, 49%);
-    --bg-input-2-color: #70BFFF;
-    --bg-1-color: #1A2189;
-    --bg-2-color: #FFFFFF;
-    --alert-btn-color: #DC060F;
+    --text-color: #ffffff;
+    --primary-color: #454466; /* Hitam keabu-abuan */
+    --secondary-color: #454466; /* Abu tua */
+    --bg-light: #47536b; /* Abu sangat gelap */
+    --bg-dark: #121417; /* Hitam pekat */
+    --accent-color: #ffffff; /* cerah */
+    --accent-hover: #43a047; /* Hijau lebih gelap saat hover */
 }
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
 }
 
+body {
+    font-family: 'Arial', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navbar */
 nav {
-    background-color: var(--bg-1-color);
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
     width: 100%;
     height: 70px;
     display: flex;
-    align-items: space-between;
-    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 20px;
 }
 
 .profile {
     display: flex;
-    width: 200px;
-    margin-left: 20px;
-
-}
-
-.profile .logo {
-    margin-top: 5px;
-    height: 70px;
-    width: 70px;
-    /* background-color: #fff; */
+    align-items: center;
 }
 
 .profile .logo img {
     height: 50px;
     width: 50px;
-    margin-top: 6px;
-    margin-left: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-color);
 }
 
 .profile .Username {
-    margin-top: 23px;
     margin-left: 15px;
-    /* Jarak antara logo dan username */
     font-size: 16px;
-    /* Ukuran teks */
     font-weight: bold;
-    /* Teks lebih tebal */
-    color: var(--bg-2-color);
-    /* Warna teks */
-    background-color: var(--text-color);
-    border: var(--bg-2-color) solid 2px;
-    width: 100%;
-    height: 40%;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 10px;
     text-align: center;
-    padding-top: 5px;
-    border-radius: 15px;
-    overflow: hidden;
-    /* Sembunyikan teks berlebih */
-    text-overflow: ellipsis;
-    /* Tambahkan "..." jika teks terlalu panjang */
     white-space: nowrap;
-    /* Pastikan teks tidak memotong baris */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .menu {
-    width: 700px;
-    /* background-color: #fff; */
-    margin-left: 330px;
+    margin-left: auto;
     display: flex;
-    align-items: center;
-    align-content: space-between;
-}
-
-.menu .menu-item {
-    margin-left: 50px;
+    gap: 20px;
 }
 
 .menu-item button {
-    border: none;
-    height: 50px;
-    width: 100px;
-    background-color: transparent;
+    background: none;
+    border: 2px solid transparent;
+    color: var(--text-color);
+    padding: 10px 20px;
     font-size: 15px;
     font-weight: bold;
-    color: var(--bg-2-color);
-    opacity: 80%;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .menu-item button:hover {
-    border: none;
-    height: 50px;
-    width: 100px;
-    background-color: var(--bg-input-color);
+    background: var(--accent-color);
+    color: var(--bg-dark);
+    border-color: var(--bg-dark);
+}
+
+/* Tombol logout */
+.logout-btn {
+    background: none;
+    border: 2px solid red; /* Warna merah untuk border */
+    color: red; /* Teks merah */
+    padding: 10px 20px;
     font-size: 15px;
     font-weight: bold;
-    color: var(--bg-2-color);
-    opacity: 100%;
-    border-radius: 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.menu_dropdown {
-    width: 80px;
-    height: 70px;
-    /* background-color:red; */
-    margin-left: 15px;
-    position: relative;
-    align-items: center;
-    align-content: center;
+.logout-btn:hover {
+    background: red; /* Latar belakang merah saat hover */
+    color: var(--bg-dark); /* Ubah warna teks menjadi gelap */
+    border-color: var(--bg-dark); /* Ubah border menjadi gelap */
 }
 
-.menu_dropdown img {
-    width: 25px;
-    height: 25px;
+/* Sidebar Kelola Data */
+.info-profil {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 250px;
+    height: calc(100% - 70px);
+    background: var(--primary-color);
+    color: var(--text-color);
+    padding: 20px;
+    border-right: 2px solid var(--secondary-color);
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
 }
 
-.menu_dropdown .dropdown {
-    background-color: var(--bg-input-color);
-    width: 80px;
-    height: 120px;
-    margin: 2px;
-    align-content: center;
-    align-items: center;
-    border-radius: 15px;
+.info-profil h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
 }
 
-.dropdown .dropdown-icon {
-    width: 40px;
-    height: 40px;
-    margin: 10px;
-    margin-left: 20px;
-}
-.dropdown-icon img{
-    margin-left: -05px;
-    margin-bottom: 4px;
+.admin-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
 }
 
-#dropdownMenu {
-    display: none;
+.admin-actions button {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    border: 2px solid var(--accent-color);
+    padding: 10px 15px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: left;
+    white-space: nowrap;
 }
 
-.menu_dropdown .burger-icon {
-    margin: 20px 0px 0px 20px;
-    height: 40px;
-    width: 40px;
-}
-.burger-icon img{
-    margin-left: -05px;
-    margin-bottom: 4px;
+.admin-actions button:hover {
+    background: var(--accent-hover);
+    color: var(--bg-dark);
+    border-color: var(--bg-dark);
 }
 
+/* Top content - untuk memusatkan teks */
+.top-content {
+    margin-left: 270px; /* Menyesuaikan dengan lebar sidebar */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertikal tengah */
+    align-items: center; /* Horizontal tengah */
+    height: calc(100vh - 70px); /* Sesuaikan dengan tinggi layar, mengurangi tinggi navbar */
+    text-align: center; /* Menyelaraskan teks di tengah */
+}
 
-/* Footer styling */
+.info h2, .info h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin: 10px 0;
+}
+
+/* Footer */
 .footer {
-    background-color: #1a237e;
+    background: #1a237e;
     color: white;
     padding: 10px 20px;
     display: flex;

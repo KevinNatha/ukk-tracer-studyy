@@ -1,109 +1,256 @@
-:root {
-    --text-color: #000000;
-    --bg-input-color: #4782B2;
-    --bg-input-2-color: #70BFFF;
-    --bg--bg-1-color: #1A2189;
-    --bg-2-color: #FFFFFF;
-    --alert-btn-color: #DC060F;
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Tabel styling */
-table {
-    width: 95%;
-    margin: 20px auto;
-    /* border-collapse: collapse; */
+/* Body */
+body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    overflow: hidden;
+    color: #333;
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
-table thead tr {
-    background-color: var(--bg-1-color);
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50;
+    padding: 10px 20px;
     color: white;
-    text-align: left;
+}
+
+nav .profile {
+    display: flex;
+    align-items: center;
+}
+
+nav .profile .logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+nav .Username {
+    font-size: 18px;
     font-weight: bold;
-    border-radius: 8px;
+    color: #fff;
 }
 
-table th,
-table td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #ddd;
-    text-align: center;
+nav .menu {
+    display: flex;
+    gap: 15px;
 }
 
-table tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-table tbody tr:hover {
-    background-color: #eafaf1;
+nav .menu-item button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
     cursor: pointer;
 }
 
-table tbody tr:last-child td {
-    border-bottom: none;
+nav .menu-item button:hover {
+    text-decoration: underline;
+    color: #e0e0e0;
 }
 
-a,
-button {
-    text-decoration: none;
-    display: inline-block;
-    padding: 8px 12px;
-    font-size: 14px;
+nav .menu_dropdown {
+    position: relative;
+}
+
+nav .menu_dropdown .burger-icon img {
+    width: 30px;
+    cursor: pointer;
+}
+
+nav .menu_dropdown .dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+nav .menu_dropdown:hover .dropdown {
+    display: block;
+}
+
+nav .menu_dropdown .dropdown-icon {
+    display: block;
+    padding: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    color: #333;
+}
+
+nav .menu_dropdown .dropdown-icon:hover {
+    background: #f4f4f9;
+}
+
+/* Container */
+.container {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+/* Status Alumni Title */
+.container h2 { 
+    font-size: 2rem;
     font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    color: #ffffff; /* Ganti warna teks */
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-a:hover,
-button:hover {
-    opacity: 0.9;
-}
-
-a[href*="edit"] {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-}
-
-a[href*="edit"]:hover {
-    background-color: #0056b3;
-}
-
-form button {
-    background-color: #DC3545;
-    color: white;
-    border: none;
-}
-
-form button:hover {
-    background-color: #a71d2a;
-}
-
+/* Button Add Status */
 .tmbh {
-    display: flex; /* Mengaktifkan Flexbox */
-    justify-content: flex-end; /* Mengatur tombol ke kanan */
-    margin-right: 20px; /* Menambahkan jarak dari sisi kanan */
-    margin-bottom: 10px;
-    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .tmbh a {
-    border: #000000 solid 2px;
-    border-radius: 15px;
-    background-color: var(--bg-input-color);
-    color: var(--bg-2-color);
-    text-align: center;
-    padding: 10px 20px; /* Menambahkan padding untuk ukuran tombol */
-    text-decoration: none; /* Menghilangkan garis bawah pada teks */
-    font-weight: bold; /* Membuat teks lebih tebal */
-    transition: background-color 0.3s ease; /* Menambahkan efek hover */
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
 }
 
 .tmbh a:hover {
-    background-color: var(--bg-1-color); /* Warna tombol saat hover */
-    color: var(--bg-2-color); /* Warna teks saat hover */
+    background-color: #45a049;
+}
+
+/* Table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.table th,
+.table td {
+    text-align: left;
+    padding: 10px;
+    color: #333;
+}
+
+.table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.table td {
+    background-color: #fff;
+}
+
+.table tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+/* Kolom Action ke kanan dan sedikit ke atas */
+.table td.action {
+    text-align: right;
+    vertical-align: middle; /* Menjaga tulisan tetap vertikal tengah */
+    padding-top: 5px; /* Menggeser tulisan sedikit ke atas */
+    display: flex;
+    justify-content: flex-end; /* Menjaga tombol berada di sebelah kanan */
+    align-items: center; /* Menyelaraskan tombol secara vertikal */
+}
+
+/* Memberikan margin kiri untuk tombol agar ada jarak antar tombol */
+.table .action a,
+.table .action form button {
+    margin-left: 10px;
+    margin-top: 5px; /* Memberikan jarak sedikit lebih besar antara tombol dan teks */
+}
+
+/* Edit Button */
+.table .btn-warning {
+    background-color: #2196F3;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.table .btn-warning:hover {
+    background-color: #f57c00;
+}
+
+/* Hapus Button */
+.table .btn-danger {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.table .btn-danger:hover {
+    background-color: #d32f2f;
+}
+
+/* Footer */
+.footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer .social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.footer .social-icons a img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .footer .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .table {
+        font-size: 14px;
+    }
+
+    .tmbh a {
+        width: 100%;
+        padding: 15px;
+    }
 }

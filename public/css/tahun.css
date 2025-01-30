@@ -1,103 +1,243 @@
-:root {
-    --text-color: #000000;
-    --bg-input-color: #4782B2;
-    --bg--bg-1-color: #1A2189;
-    --bg-2-color: #FFFFFF;
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* General styling for the table */
-table {
-    width: 95%;
-    margin: 20px auto;
-    border-collapse: collapse;
+/* Body */
+body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    overflow: hidden;
+    color: #333; /* Mengubah teks body menjadi warna gelap agar lebih terlihat */
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
-table thead tr {
-    background-color: var(--bg--bg-1-color);
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50;
+    padding: 10px 20px;
     color: white;
-    text-align: left;
+}
+
+nav .profile {
+    display: flex;
+    align-items: center;
+}
+
+nav .profile .logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+nav .Username {
+    font-size: 18px;
     font-weight: bold;
+    color: #fff; /* Pastikan nama pengguna terlihat dengan warna putih */
 }
 
-table th,
-table td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #ddd;
+nav .menu {
+    display: flex;
+    gap: 15px;
 }
 
-table tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-table tbody tr:hover {
-    background-color: #eafaf1;
+nav .menu-item button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
     cursor: pointer;
 }
 
-table tbody tr:last-child td {
-    border-bottom: none;
+nav .menu-item button:hover {
+    text-decoration: underline;
+    color: #e0e0e0; /* Warna teks tombol hover agar lebih terlihat */
 }
 
-a,
-button {
-    text-decoration: none;
-    display: inline-block;
-    padding: 8px 12px;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+nav .menu_dropdown {
+    position: relative;
 }
 
-a:hover,
-button:hover {
-    opacity: 0.9;
+nav .menu_dropdown .burger-icon img {
+    width: 30px;
+    cursor: pointer;
 }
 
-a[href*="edit"] {
-    background-color: #007BFF;
-    color: white;
+nav .menu_dropdown .dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+nav .menu_dropdown:hover .dropdown {
+    display: block;
+}
+
+nav .menu_dropdown .dropdown-icon {
+    display: block;
+    padding: 10px;
     border: none;
+    background: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    color: #333; /* Warna teks dropdown */
 }
 
-a[href*="edit"]:hover {
-    background-color: #0056b3;
+nav .menu_dropdown .dropdown-icon:hover {
+    background: #f4f4f9;
 }
 
-form button {
-    background-color: #DC3545;
-    color: white;
-    border: none;
+/* Container */
+.container {
+    padding: 20px;
+    flex-grow: 1;
 }
 
-form button:hover {
-    background-color: #a71d2a;
+/* Tahun Lulus Heading */
+h3 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: center;
 }
+
+/* Button Add Tahun Lulus */
 .tmbh {
-    display: flex; /* Mengaktifkan Flexbox */
-    justify-content: flex-end; /* Mengatur tombol ke kanan */
-    margin-right: 20px; /* Menambahkan jarak dari sisi kanan */
-    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .tmbh a {
-    border: #000000 solid 2px;
-    border-radius: 15px;
-    background-color: var(--bg-input-color);
-    color: var(--bg-2-color);
-    text-align: center;
-    padding: 10px 20px; /* Menambahkan padding untuk ukuran tombol */
-    text-decoration: none; /* Menghilangkan garis bawah pada teks */
-    font-weight: bold; /* Membuat teks lebih tebal */
-    transition: background-color 0.3s ease; /* Menambahkan efek hover */
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
 }
 
 .tmbh a:hover {
-    background-color: var(--bg--bg-1-color); /* Warna tombol saat hover */
-    color: var(--bg-2-color); /* Warna teks saat hover */
+    background-color: #45a049;
+}
+
+/* Table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.table th,
+.table td {
+    text-align: left;
+    padding: 10px;
+    color: #333; /* Menambahkan warna teks untuk kolom tabel */
+}
+
+.table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.table td {
+    background-color: #fff;
+}
+
+.table tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+.table a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.table a.btn-warning {
+    background-color: #2196F3;
+}
+
+.table a.btn-warning:hover {
+    background-color: #f57c00;
+}
+
+/* Delete Button */
+.table form {
+    display: inline;
+}
+
+.table button.btn-danger {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.table button.btn-danger:hover {
+    background-color: #d32f2f;
+}
+
+/* Footer */
+.footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer .social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.footer .social-icons a img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .footer .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .table {
+        font-size: 14px;
+    }
+
+    .tmbh a {
+        width: 100%;
+        padding: 15px;
+    }
 }

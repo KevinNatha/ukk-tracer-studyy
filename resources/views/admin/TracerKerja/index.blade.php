@@ -10,8 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
-        
-             height: 800px;
+            height: 800px;
             display: flex;
             flex-direction: column;
             margin: 0;
@@ -45,20 +44,12 @@
             </div>
         </div>
         <div class="menu_dropdown">
-            <button class="burger-icon" id="burgerMenu">
-                <img src="{{ asset('icons/dropdown.png') }}" alt="Icons">
-            </button>
-            <ul class="dropdown" id="dropdownMenu">
-                <button onclick="window.location='{{ route('login') }}';" class="dropdown-icon">
-                    <img src="{{ asset('icons/dropdown.png') }}" alt="Icons">
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
+                @csrf
+                <button type="submit" class="logout-btn">
+                    Logout
                 </button>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: inline;">
-                    @csrf
-                    <button type="submit" class="dropdown-icon">
-                        <img src="{{ asset('icons/logout.png') }}" alt="Logout Icon">
-                    </button>
-                </form>
-            </ul>
+            </form>
         </div>
     </nav>
 
@@ -84,7 +75,8 @@
                 @foreach ($tracerKerja as $key => $kerja)
                     <tr>
                         <td>{{ $key + 1 }}</td>
-                        <td>{{ $kerja->alumni ? $kerja->alumni->nama_depan . ' ' . $kerja->alumni->nama_belakang : 'Tidak Ditemukan' }}</td>                        <td>{{ $kerja->tracer_kerja_pekerjaan }}</td>
+                        <td>{{ $kerja->alumni ? $kerja->alumni->nama_depan . ' ' . $kerja->alumni->nama_belakang : 'Tidak Ditemukan' }}</td>
+                        <td>{{ $kerja->tracer_kerja_pekerjaan }}</td>
                         <td>{{ $kerja->tracer_kerja_nama }}</td>
                         <td>{{ $kerja->tracer_kerja_jabatan }}</td>
                         <td>{{ $kerja->tracer_kerja_status }}</td>
@@ -104,6 +96,7 @@
             </tbody>
         </table>
     </div>
+
     <script src="{{ asset('js/admin.js') }}"></script>
     <footer class="footer">
         <div class="footer-content">

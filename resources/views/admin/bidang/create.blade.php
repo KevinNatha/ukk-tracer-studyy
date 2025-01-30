@@ -8,8 +8,15 @@
     <link rel="stylesheet" href="{{ asset('css/nav_admin.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        body {
+        :root {
+            --bg-2-color: #f9f9f9;
+            --bg-1-color: #4CAF50;
+            --text-color: #333;
+            --bg-input-color: #4CAF50;
+            --alert-btn-color: #ff5722;
+        }
 
+        body {
             height: 800px;
             display: flex;
             flex-direction: column;
@@ -32,7 +39,7 @@
             text-align: center;
             font-size: 28px;
             font-weight: bold;
-            color: var(--bg--bg-1-color);
+            color: var(--bg-1-color);
             margin-bottom: 20px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
@@ -60,7 +67,7 @@
 
         /* Fokus pada Input */
         .form input:focus {
-            border-color: var(--bg--bg-1-color);
+            border-color: var(--bg-1-color);
             outline: none;
         }
 
@@ -102,8 +109,6 @@
 </head>
 
 <body>
-
-
 
     <div class="form">
         <h1>Tambah Bidang Keahlian</h1>

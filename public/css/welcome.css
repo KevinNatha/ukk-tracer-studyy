@@ -1,334 +1,131 @@
 :root {
-    --text-color: #000000;
-    --bg-input-color: #4782B2;
-    --bg-input-2-color: #70BFFF;
-    --bg-1-color: #1A2189;
-    --bg-2-color: #FFFFFF;
-    --alert-btn-color: #DC060F;
+    --text-color: #ffffff;
+    --primary-color: #454466;
+    --secondary-color: #454466;
+    --bg-light: #47536b;
+    --bg-dark: #121417;
+    --accent-color: #ffffff;
+    --accent-hover: #43a047;
 }
 
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-
 }
 
 body {
-    width: 100%;
-    height: 1800px;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
-    margin: 0;
+    min-height: 100vh;
 }
 
+/* Navbar */
 nav {
-    background-color: var(--bg-1-color);
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
     width: 100%;
     height: 70px;
     display: flex;
-    align-items: space-between;
-    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 20px;
 }
 
 .profile {
     display: flex;
-    width: 200px;
-    margin-left: 20px;
-
-}
-
-.profile .logo {
-    margin-top: 5px;
-    height: 70px;
-    width: 70px;
-    /* background-color: #fff; */
+    align-items: center;
 }
 
 .profile .logo img {
-    height: 50px;
     width: 50px;
-    margin-top: 6px;
-    margin-left: 18px;
-}
-
-.profile .login {
-    height: 70px;
-    width: 120px;
-    margin-left: 15px;
-    /* background-color: #ff0000; */
-}
-
-.login button {
-    margin-top: 20px;
-    margin-left: 5px;
-    width: 110px;
-    height: 30px;
-    background-color: var(--bg-input-color);
-    border: none;
-    color: var(--bg-2-color);
-    font-size: large;
-    border-radius: 15px;
-
-}
-
-.login a {
-    text-decoration: none;
-
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-color);
 }
 
 .menu {
-    width: 700px;
-    /* background-color: #fff; */
-    margin-left: 330px;
+    margin-left: auto;
     display: flex;
-    align-items: center;
-    align-content: space-between;
-}
-
-.menu .menu-item {
-    margin-left: 90px;
+    gap: 20px;
 }
 
 .menu-item button {
-    border: none;
-    height: 50px;
-    width: 100px;
-    background-color: transparent;
+    background: none;
+    border: 2px solid transparent;
+    color: var(--text-color);
+    padding: 10px 20px;
     font-size: 15px;
     font-weight: bold;
-    color: var(--bg-2-color);
-    opacity: 80%;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .menu-item button:hover {
-    border: none;
-    height: 50px;
-    width: 100px;
-    background-color: var(--bg-input-color);
-    font-size: 15px;
-    font-weight: bold;
-    color: var(--bg-2-color);
-    opacity: 100%;
-    border-radius: 15px;
+    background: var(--accent-color);
+    color: var(--bg-dark);
 }
 
-.menu_dropdown {
-    width: 80px;
-    height: 70px;
-    /* background-color:red; */
-    margin-left: 15px;
-    position: relative;
-    align-items: center;
-    align-content: center;
-}
-
-.menu_dropdown img {
-    width: 25px;
-    height: 25px;
-}
-
-.menu_dropdown .dropdown {
-    background-color: var(--bg-input-color);
-    width: 80px;
-    height: 120px;
-    margin: 2px;
-    align-content: center;
-    align-items: center;
-    border-radius: 15px;
-}
-
-.dropdown .dropdown-icon {
-    width: 40px;
-    height: 40px;
-    margin: 10px;
-    margin-left: 20px;
-}
-
-#dropdownMenu {
-    display: none;
-}
-
-.menu_dropdown .burger-icon {
-    margin: 20px 0px 0px 20px;
-    height: 40px;
-    width: 40px;
-}
-
-/* nav */
+/* Konten Utama */
 .top-content {
-    width: 100%;
-    height: 500px;
-    background-size: cover;
-    background-position: center;
-    background-image: url(/images/bg2.jpeg);
-    display: flex;
-}
-
-.top-content .info {
-    margin: 100px 0px 0px 50px;
-    width: 600px;
-    height: 150px;
-    opacity: 100%;
-    /* background-color: red; */
-}
-
-.info h3 {
-    font-size: 30px;
-    font: weight 900px;
-    color: var(--text -color);
-}
-
-.info span {
-    font-size: 30px;
-    font: weight 900px;
-    color: var(--alert-btn-color);
-}
-
-.info h2 {
-    font-size: 40px;
-    font: weight 900px;
-    color: var(--bg-2-color);
-}
-
-.top-content .info-profil {
-    /* background-color: red; */
-    width: 350px;
-    margin: 0px 0px 0px 250px;
-    height: 500px;
-}
-
-.tabel-profil .profil {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #fff;
-    margin: 50px 5px 15px 140px;
-}
-
-.profil img {
-    margin: 5px 0px 0px 4px;
-}
-
-.info-profil .tabel-profil {
-    width: 100%;
-    height: 50%;
-    background-color: var(--bg-input-2-color);
-    margin: 90px 0px 0px 0px;
-    padding-top: 1px;
-    border-radius: 5%;
-}
-
-.tabel-profil .profil-item {
-    margin-left: 50px;
-    margin-top: 5px;
-}
-
-.profil-item p {
-    font-size: large;
-    font-weight: bold;
-    color: var(--bg-2-color);
-}
-
-.chart-info {
-    align-items: center;
-    height: 50px;
-}
-
-.chart-info h3 {
-    font-size: 30px;
-    margin: 50px 0px 50px 0px;
+    margin: 20px;
+    padding: 20px;
     text-align: center;
 }
 
-.chart-container {
-    /* max-width: 500px;
-    max-height: 500px; */
-    margin: 0 auto;
-    width: 250px;
-    height: 250px;
-    margin-left: 100px;
+.info h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--accent-color);
 }
 
-#tracerChart {
-    width: 100px;
-    height: 00px;
+.info h3 {
+    font-size: 18px;
+    margin: 10px 0;
 }
 
-.chart-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+/* Sidebar Profil */
+.info-profil {
+    width: 300px;
+    background: var(--primary-color);
+    color: var(--text-color);
     padding: 20px;
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    width: 800px;
-    height: 400px;
-    margin-left: 240px;
-    margin-top: 60px;
+    border-radius: 10px;
+    margin: 20px auto;
 }
 
-.chart-container {
-    flex: 1;
+.tabel-profil {
+    text-align: center;
 }
 
-.chart-legend {
-    flex: 1;
-    text-align: left;
-    margin-left: 80px;
+.tabel-profil .profil img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
 }
 
-#legendList {
-    list-style-type: none;
-    padding: 0;
-    margin: 10px 0px 0px 0px;
+.profil-item {
+    font-size: 16px;
+    margin: 5px 0;
 }
 
-#legendList li {
-    margin-bottom: 5px;
-    font-size: 14px;
-    color: #333;
-}
-
-#legendList-kerja {
-    list-style-type: none;
-    /* Menghilangkan bullet point */
-    padding: 0;
-    /* Menghilangkan padding default */
-    margin: 10px 0px 0px 0px;
-}
-
-#legendList-kerja li {
-    margin-bottom: 5px;
-    font-size: 14px;
-    color: #333;
-}
-/* Footer styling */
+/* Footer */
 .footer {
-    background-color: #1a237e;
+    background: #1a237e;
     color: white;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
     margin-top: auto;
     border-top: 3px solid #1976d2;
 }
 
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
 .footer-content p {
-    margin: 0;
     font-size: 14px;
-    font-family: Arial, sans-serif;
 }
 
 .social-icons {
@@ -336,14 +133,33 @@ nav {
     gap: 10px;
 }
 
-.social-icon img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
+.social-icon img,
 .social-icon-1 img {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-size:auto;
+}
+
+/* Tombol Login */
+.profile .login button {
+    background-color: var(--accent-color); /* Warna hijau mencolok */
+    color: var(--bg-dark); /* Warna teks gelap agar kontras */
+    font-size: 16px; /* Ukuran font lebih besar */
+    font-weight: bold;
+    padding: 12px 20px; /* Padding lebih besar agar nyaman diklik */
+    border: none;
+    border-radius: 8px; /* Membuat sudut lebih bulat */
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Efek saat hover */
+.profile .login button:hover {
+    background-color: var(--accent-hover); /* Warna hijau lebih gelap */
+    transform: scale(1.05); /* Efek memperbesar sedikit saat dihover */
+}
+
+/* Efek saat ditekan (active) */
+.profile .login button:active {
+    transform: scale(0.95); /* Efek mengecil sedikit saat diklik */
 }

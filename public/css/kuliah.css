@@ -1,17 +1,18 @@
 :root {
-    --text-color: #000000;
-    --bg-input-color: #4782B2;
-    --bg-input-2-color: #70BFFF;
-    --bg-1-color: #1A2189;
-    --bg-2-color: #FFFFFF;
-    --alert-btn-color: #DC060F;
+    --text-color: #ffffff;
+    --primary-color: #282c34; /* Hitam keabu-abuan */
+    --secondary-color: #3b3f46; /* Abu tua */
+    --bg-light: #1c1f26; /* Abu sangat gelap */
+    --bg-dark: #121417; /* Hitam pekat */
+    --accent-color: #4caf50; /* Hijau cerah */
+    --accent-hover: #43a047; /* Hijau lebih gelap saat hover */
 }
 
 /* Container */
 .container {
     width: 100%;
     margin: 30px auto;
-    background-color: var(--bg-2-color);
+    background-color: var(--bg-light);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -23,7 +24,7 @@
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    color: var(--bg-input-color);
+    color: var(--accent-color);
     margin-bottom: 20px;
     text-shadow: 1px 1px 2px var(--text-color);
 }
@@ -47,18 +48,18 @@
 }
 
 .table th {
-    background-color: var(--bg-input-color);
-    color: var(--bg-2-color);
+    background-color: var(--primary-color);
+    color: var(--text-color);
     font-weight: bold;
     text-transform: uppercase;
 }
 
 .table tr:nth-child(even) {
-    background-color: #f8f8f8;
+    background-color: var(--secondary-color);
 }
 
 .table tr:hover {
-    background-color: #e6f7ff;
+    background-color: var(--bg-dark);
 }
 
 /* Button */
@@ -69,24 +70,33 @@
     font-weight: bold;
     border-radius: 5px;
     text-decoration: none;
-    color: var(--bg-2-color);
-    background-color: var(--bg-input-2-color);
+    color: var(--bg-dark);
+    background-color: var(--accent-color);
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-right: 8px;
 }
 
 .btn:hover {
-    background-color: var(--bg-input-color);
+    background-color: var(--accent-hover);
     transform: scale(1.05);
 }
 
+.btn-primary {
+    background-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--bg-dark);
+}
+
 .btn-danger {
-    background-color: var(--alert-btn-color);
+    background-color: var(--accent-color);
 }
 
 .btn-danger:hover {
-    background-color: #a1030b;
+    background-color: var(--accent-hover);
 }
 
 /* Layout Adjustments */

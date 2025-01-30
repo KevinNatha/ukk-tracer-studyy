@@ -16,7 +16,7 @@
 
 body {
     width: 100%;
-    height: 1800px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -25,11 +25,10 @@ body {
 
 /* nav */
 .top-content {
-    width: 100%;
+    width: 50%;
     height: 500px;
     background-size: cover;
     background-position: center;
-    background-image: url(/images/bg2.jpeg);
     display: flex;
 }
 

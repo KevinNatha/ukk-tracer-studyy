@@ -1,180 +1,215 @@
-:root {
-    --text-color: #000000;
-    --bg-input-color: #4782B2;
-    --bg-input-2-color: #70BFFF;
-    --bg-1-color: #1A2189;
-    --bg-2-color: #FFFFFF;
-    --alert-btn-color: #DC060F;
+/* Body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-/* General container styles */
-.container {
-    margin-top: 20px;
-    background: #f0f8ff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
+/* Header */
 h1 {
     text-align: center;
-    font-size: 32px;
-    font-weight: bold;
-    color: var(--bg-1-color);
-    margin-top: 20px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+    color: #ffffff;
+    font-size: 2.5rem;
 }
 
-/* Tambah button container */
+/* Tombol Tambah */
 .tmbh {
-    display: flex; /* Mengaktifkan Flexbox */
-    justify-content: flex-end; /* Mengatur tombol ke kanan */
-    margin-right: 20px; /* Menambahkan jarak dari sisi kanan */
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: center; /* Menjaga tombol di tengah */
+    margin-top: 20px; /* Memberikan jarak atas */
 }
 
 .tmbh a {
-    border: #000000 solid 2px;
-    border-radius: 15px;
-    background-color: var(--bg-input-color);
-    color: var(--bg-2-color);
-    text-align: center;
-    padding: 10px 20px; /* Ukuran tombol */
-    text-decoration: none; /* Menghilangkan garis bawah */
-    font-weight: bold; /* Membuat teks lebih tebal */
-    transition: background-color 0.3s ease; /* Efek hover */
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
 }
 
 .tmbh a:hover {
-    background-color: var(--bg-1-color); /* Warna tombol saat hover */
-    color: var(--bg-2-color); /* Warna teks saat hover */
+    background-color: #45a049;
 }
 
-/* Table styles */
-table {
+/* Tabel Konsentrasi Keahlian */
+.table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #fff;
+    margin-top: 20px;
+    text-align: left;
+    background-color: #ffffff; /* Latar belakang putih */
 }
 
-table thead {
-    background-color: var(--bg-1-color);
-    color: #fff;
-}
-
-table th, table td {
-    padding: 12px;
-    text-align: center;
+.table th, .table td {
+    padding: 12px 15px;
     border: 1px solid #ddd;
+    font-size: 14px;
+    color: #333; /* Teks berwarna hitam */
 }
 
-table tbody tr:nth-child(even) {
-    background: #f9f9f9;
-}
-
-table tbody tr:hover {
-    background: #ffebf0;
-}
-
-/* Button styles */
-/* Button styles */
-.btn {
+.table th {
+    background-color: #4CAF50;
+    color: white;
     text-transform: uppercase;
-    border-radius: 8px; /* Membuat sudut tombol lebih membulat */
     font-weight: bold;
-    padding: 10px 20px; /* Memberikan ruang lebih untuk ukuran tombol */
-    font-size: 14px; /* Ukuran teks yang lebih proporsional */
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Tombol Aksi */
+.btn {
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    border: none;
     cursor: pointer;
-    transition: all 0.3s ease; /* Memberikan transisi halus untuk efek hover */
-    color: #fff; /* Warna teks default */
-    display: inline-block; /* Membuat tombol tidak mengambil satu baris penuh */
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Success Button */
-.btn-success {
-    background-color: var(--bg-input-color);
-    border: 1px solid #4e9a2a; /* Memberikan border halus */
-}
-
-.btn-success:hover {
-    background-color: var(--bg-1-color); /* Warna tombol saat hover */
-}
-
-/* Primary Button */
 .btn-primary {
-    background-color: var(--bg-input-color);
-    border: 1px solid #3e91ed; /* Memberikan border halus */
+    background-color: #2196F3;
+    color: white;
 }
 
 .btn-primary:hover {
-    background-color: var(--bg-1-color); /* Warna tombol saat hover */
+    background-color: #1E88E5;
+    transform: scale(1.05);
 }
 
-/* Danger Button */
 .btn-danger {
-    background-color: var(--alert-btn-color);
-    border: 1px solid #c1050d; /* Memberikan border halus */
+    background-color: #f44336;
+    color: white;
 }
 
 .btn-danger:hover {
-    background-color: #a1030b; /* Warna lebih gelap saat hover */
+    background-color: #e53935;
+    transform: scale(1.05);
 }
 
-/* Hover and Active Effects */
-.btn:hover {
-    opacity: 0.95;
-    transform: scale(1.05); /* Memberikan efek membesar sedikit */
+/* Footer */
+.footer {
+    margin-top: auto;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
 }
 
-.btn:active {
-    transform: scale(0.98); /* Memberikan efek sedikit mengecil saat ditekan */
-    transition: transform 0.1s ease; /* Perubahan cepat untuk animasi active */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
-a{
-    text-decoration: none;
-}
-.form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+
+.footer p {
+    margin: 0;
     font-size: 14px;
 }
 
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
 
+.social-icons a img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
 
-.form button {
+.social-icons a:hover img {
+    transform: scale(1.2);
+}
+
+/* Form Container */
+.form {
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Form Heading */
+.form h1 {
+    font-size: 24px;
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+/* Form Labels */
+.form label {
     display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Form Inputs */
+.form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Submit Button */
+.form button {
     width: 100%;
     padding: 10px;
     background-color: #4CAF50;
-    color: var(--bg-2-color);
-    font-size: 16px;
-    font-weight: bold;
+    color: white;
     border: none;
     border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .form button:hover {
     background-color: #45a049;
+    transform: scale(1.05);
 }
 
-.form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #333;
-}
-.form {
-    max-width: 600px;
-    margin: 20px auto;
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+/* Responsiveness */
+@media (max-width: 768px) {
+    .form {
+        padding: 15px;
+    }
 
+    .form h1 {
+        font-size: 20px;
+    }
+
+    .form input, .form button {
+        font-size: 14px;
+    }
+}

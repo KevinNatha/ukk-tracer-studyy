@@ -1,0 +1,184 @@
+:root {
+    --text-color: #000000;
+    --bg-input-color: #4782B2;
+    --bg-input-2-color: #70BFFF;
+    --bg-1-color: #1A2189;
+    --bg-2-color: #FFFFFF;
+    --alert-btn-color: #DC060F;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Styling Navbar */
+nav {
+    background-color: var(--bg-1-color);
+    width: 250px; /* Mengubah lebar navbar */
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Mengatur tombol secara vertikal */
+    justify-content: flex-start;
+    padding-top: 20px;
+    position: fixed; /* Memastikan navbar tetap di kiri */
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.profile .logo img {
+    height: 50px;
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.profile .Username {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--bg-2-color);
+    background-color: var(--text-color);
+    border: var(--bg-2-color) solid 2px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 30px;
+    gap: 10px; /* Menambahkan jarak antar tombol */
+}
+
+.menu .menu-item {
+    width: 100%; /* Menjamin tombol memiliki lebar penuh */
+}
+
+.menu-item button {
+    border: none;
+    height: 50px;
+    width: 100%;
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--bg-2-color);
+    opacity: 80%;
+    padding-left: 20px;
+    text-align: left;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 10px;
+}
+
+.menu-item button:hover {
+    background-color: var(--bg-input-color);
+    color: var(--bg-2-color);
+    opacity: 100%;
+    transform: translateX(10px); /* Menambahkan efek geser tombol */
+}
+
+/* Menempatkan burger icon di kanan atas */
+.menu_dropdown {
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu_dropdown .burger-icon {
+    margin-left: auto;
+    margin-right: 20px; /* Membuat tombol burger sedikit ke kanan */
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+/* Dropdown menu yang muncul */
+.menu_dropdown .dropdown {
+    background-color: var(--bg-input-color);
+    width: 200px;
+    padding: 10px;
+    border-radius: 15px;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu_dropdown:hover .dropdown {
+    display: flex;
+}
+
+.dropdown .dropdown-icon {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+}
+
+#dropdownMenu {
+    display: none;
+}
+
+/* Footer styling */
+.footer {
+    background-color: #1a237e;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-top: auto;
+    border-top: 3px solid #1976d2;
+    flex-wrap: wrap; /* Memungkinkan elemen di footer untuk dibungkus */
+    height: 80px; /* Ukuran footer yang lebih kecil */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 10px; /* Menambah jarak antar item */
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon img {
+    width: 25px; /* Menyesuaikan ukuran ikon sosial */
+    height: 25px;
+    border-radius: 50%;
+}
+
+/* Menambah margin pada ikon untuk memberikan jarak lebih */
+.social-icon-1 img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}

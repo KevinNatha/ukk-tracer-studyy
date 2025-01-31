@@ -1,94 +1,134 @@
-/* Root Variables */
-:root {
-    --text-color: #000000;
-    --bg-input-color: #4782B2;
-    --bg-input-2-color: #70BFFF;
-    --bg-1-color: #1A2189;
-    --bg-2-color: #FFFFFF;
-    --alert-btn-color: #DC060F;
-}
-
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
+/* Reset */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
-    color: var(--text-color);
-    height: 800px;
-    display: flex;
-    flex-direction: column;
+    box-sizing: border-box;
 }
 
-.container {
-    margin: 20px auto;
-    max-width: 1200px;
-    background: var(--bg-2-color);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+/* Body */
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background-color: #f8f9fa;
 }
 
-
-
-
-/* Table Styles */
-table {
+/* Navbar */
+nav {
+    background: linear-gradient(90deg, #454466, #353554);
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: var(--bg-2-color);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
+}
+
+/* Profil */
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile .logo img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.profile .Username {
+    margin-left: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #454466;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
     text-align: center;
 }
 
-table thead {
-    background-color: var(--bg-1-color);
-    color: #fff;
+/* Menu */
+.menu {
+    display: flex;
+    gap: 15px;
 }
 
-table th, table td {
-    padding: 12px;
+.menu-item button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.menu-item button:hover {
+    background-color: #218838;
+}
+
+/* Logout Button */
+.logout-container {
+    display: flex;
+    align-items: center;
+}
+
+.logout-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.logout-button:hover {
+    background-color: #c82333;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Table */
+.table-bordered {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.table-bordered th, .table-bordered td {
+    text-align: center;
+    padding: 8px 12px;
     border: 1px solid #ddd;
 }
 
-table tbody tr:nth-child(even) {
-    background: #f9f9f9;
+.thead-dark {
+    background-color: #28a745;
+    color: white;
 }
 
-table tbody tr:hover {
-    background: #ffebf0;
-}
-/* Tombol Umum */
-.btn {
-    display: inline-block;
+/* Footer */
+.footer {
+    background-color: #28a745;
+    color: white;
+    padding: 20px 0;
     text-align: center;
-    padding: 10px 20px;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 5px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    color: #fff; /* Warna teks default */
+    margin-top: 20px;
 }
 
-/* Tombol Primary */
-.btn-primary {
-    background-color: var(--bg-input-color);
-    border: 1px solid var(--bg-input-color);
+.footer .social-icons a {
+    margin: 0 10px;
 }
 
-.btn-primary:hover {
-    background-color: var(--bg-1-color);
-    border-color: var(--bg-1-color);
-    transform: scale(1.05); /* Efek membesar saat hover */
+.footer .social-icons img {
+    width: 30px;
+    height: 30px;
 }
-
-.btn-primary:active {
-    transform: scale(0.95); /* Efek mengecil saat ditekan */
-    transition: transform 0.1s ease;
-}
-
-
-/* create */

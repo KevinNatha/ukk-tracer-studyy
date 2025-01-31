@@ -68,12 +68,14 @@
             color: var(--text-color);
         }
 
-        h1 {
+       /* Menengahkan teks "Create Testimoni" */
+        h2 {
             text-align: center;
-            /* font-size: 28px; */
-            margin-top: 20px;
-            color: var(--bg-1-color);
+            font-size: 68px; /* Perbesar teks */
+            font-weight: bold; /* Buat lebih tegas */
+            color: #1A2189; /* Warna teks */
         }
+
 
         /* Styling untuk form */
         form {

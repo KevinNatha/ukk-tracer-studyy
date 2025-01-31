@@ -1,4 +1,5 @@
 :root {
+    /* Warna utama */
     --text-color: #ffffff;
     --primary-color: #282c34; /* Hitam keabu-abuan */
     --secondary-color: #3b3f46; /* Abu tua */
@@ -6,9 +7,23 @@
     --bg-dark: #121417; /* Hitam pekat */
     --accent-color: #4caf50; /* Hijau cerah */
     --accent-hover: #43a047; /* Hijau lebih gelap saat hover */
+
+    /* Warna untuk tabel */
+    --table-header-bg: var(--primary-color);
+    --table-header-text: var(--text-color);
+    /*--table-row-bg:; /* Warna belakang teks tabel */
+    --table-row-text: rgb(255, 255, 255); /* Warna teks tabel */
+    --table-hover-bg: var(--bg-dark);
+    --table-border-color: var(--text-color);
+
+    /* Warna tombol */
+    --btn-detail-bg: #2196F3; /* Biru */
+    --btn-detail-hover: #1976D2;
+    --btn-hapus-bg: #F44336; /* Merah */
+    --btn-hapus-hover: #D32F2F;
 }
 
-/* Global Styles */
+/* Reset CSS */
 * {
     padding: 0;
     margin: 0;
@@ -46,78 +61,7 @@ nav {
     border: 2px solid var(--accent-color);
 }
 
-.profile .Username {
-    margin-left: 15px;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-    padding: 5px 10px;
-    border-radius: 10px;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.menu {
-    margin-left: auto;
-    display: flex;
-    gap: 20px;
-}
-
-.menu-item button {
-    background: none;
-    border: 2px solid transparent;
-    color: var(--text-color);
-    padding: 10px 20px;
-    font-size: 15px;
-    font-weight: bold;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.menu-item button:hover {
-    background: var(--accent-color);
-    color: var(--bg-dark);
-    border-color: var(--bg-dark);
-}
-
-.menu_dropdown {
-    position: relative;
-}
-
-.menu_dropdown .burger-icon img {
-    width: 40px;
-    cursor: pointer;
-}
-
-.menu_dropdown .dropdown {
-    display: none;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background-color: var(--bg-dark);
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.menu_dropdown:hover .dropdown {
-    display: block;
-}
-
-.dropdown .dropdown-icon img {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 10px;
-    border-radius: 50%;
-    background-color: var(--accent-color);
-    padding: 5px;
-}
-
-/* Sidebar Kelola Data */
+/* Sidebar */
 .info-profil {
     position: fixed;
     top: 70px;
@@ -128,54 +72,10 @@ nav {
     color: var(--text-color);
     padding: 20px;
     border-right: 2px solid var(--secondary-color);
-    overflow-y: auto;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
 }
 
-.info-profil h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    text-align: center;
-    color: var(--accent-color);
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 10px;
-}
-
-.admin-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.admin-actions button {
-    background: var(--secondary-color);
-    color: var(--text-color);
-    border: 2px solid var(--accent-color);
-    padding: 10px 15px;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    text-align: left;
-    white-space: nowrap;
-}
-
-.admin-actions button:hover {
-    background: var(--accent-hover);
-    color: var(--bg-dark);
-    border-color: var(--bg-dark);
-}
-
-/* Konten utama menyesuaikan posisi sidebar */
+/* Konten utama */
 .top-content {
-    margin-left: 270px;
-    padding: 20px;
-}
-
-.chart-section {
     margin-left: 270px;
     padding: 20px;
 }
@@ -187,41 +87,7 @@ nav {
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    position: relative;
-    margin-top: auto;
     border-top: 3px solid #1976d2;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.footer-content p {
-    margin: 0;
-    font-size: 14px;
-    font-family: Arial, sans-serif;
-}
-
-.social-icons {
-    display: flex;
-    gap: 10px;
-}
-
-.social-icon img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
-
-.social-icon-1 img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-size: auto;
 }
 
 /* Styling untuk Tabel */
@@ -232,7 +98,6 @@ nav {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-family: Arial, sans-serif;
 }
 
 .container h2 {
@@ -241,9 +106,9 @@ nav {
     font-weight: bold;
     color: var(--accent-color);
     margin-bottom: 20px;
-    text-shadow: 1px 1px 2px var(--text-color);
 }
 
+/* Tabel */
 .table {
     width: 100%;
     border-collapse: collapse;
@@ -258,31 +123,24 @@ nav {
 .table td {
     padding: 12px 15px;
     text-align: center;
-    border-bottom: 1px solid var(--text-color);
-}
-
-.table td .btn {
-    display: inline-block;
-    margin: 0 5px;
-    vertical-align: middle;
+    border-bottom: 1px solid var(--table-border-color);
+    background-color: var(--table-row-bg); /* Warna background sel */
+    color: var(--table-row-text); /* Warna teks */
 }
 
 .table th {
-    background-color: var(--primary-color);
-    color: var(--text-color);
+    background-color: var(--table-header-bg);
+    color: var(--table-header-text);
     font-weight: bold;
     text-transform: uppercase;
 }
 
-.table tr:nth-child(even) {
-    background-color: var(--secondary-color);
+/* Hover hanya untuk isi tabel, bukan header */
+.table tr:not(:first-child):hover {
+    background-color: var(--table-hover-bg);
 }
 
-.table tr:hover {
-    background-color: var(--bg-dark);
-}
-
-/* Button Styling */
+/* Styling untuk tombol */
 .btn {
     text-transform: uppercase;
     padding: 8px 12px;
@@ -290,19 +148,34 @@ nav {
     font-weight: bold;
     border-radius: 5px;
     text-decoration: none;
-    color: var(--bg-dark);
-    background-color: var(--accent-color);
+    color: rgb(0, 0, 0);
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin-right: 8px;
 }
 
-.btn:hover {
-    background-color: var(--accent-hover);
+/* Tombol "Detail" */
+.btn-detail {
+    background-color: var(--btn-detail-bg);
+}
+
+.btn-detail:hover {
+    background-color: var(--btn-detail-hover);
     transform: scale(1.05);
 }
 
+/* Tombol "Hapus" */
+.btn-hapus {
+    background-color: var(--btn-hapus-bg);
+}
+
+.btn-hapus:hover {
+    background-color: var(--btn-hapus-hover);
+    transform: scale(1.05);
+}
+
+/* Tombol lainnya */
 .btn-primary {
     background-color: var(--primary-color);
 }
@@ -328,4 +201,3 @@ nav {
 .container .table-actions .btn {
     margin-right: 10px;
 }
-

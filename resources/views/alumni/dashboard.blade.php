@@ -61,23 +61,14 @@
             <h3>untuk mendukung pengembangan</h3>
             <h3>Alumni di masa depan</h3>
         </div>
-        <div class="info-profil">
-            <div class="tabel-profil">
-                <div class="profil">
-                    <img src="{{ asset('images/profil.png') }}" alt="profil">
-                </div>
-                <div class="profil-item">
-                    <p>Nama : {{ Auth::user()->name }}</p>
-                </div>
-                <div class="profil-item">
-                    <p>Email : {{ Auth::user()->email }}</p>
-                </div>
-                <div class="profil-item">
-                    <p>Jurusan : {{ Auth::user()->email }}</p>
-                </div>
-                <div class="profil-item">
-                    <p>Tahun Lulus : </p>
-                </div>
+        <!-- Profile Information -->
+        <div class="profile-info">
+            <img src="{{ asset('images/profil.png') }}" alt="Profile Picture" class="profile-img">
+            <div class="profile-details">
+                <p><strong>Nama:</strong> {{ $alumnis->nama_depan ?? 'Data alumni tidak ditemukan.' }} {{ $alumnis->nama_belakang ?? '' }}</p>
+                <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
+                <p><strong>Jurusan:</strong> {{ $alumnis->konsentrasiKeahlian->konsentrasi_keahlian ?? 'Jurusan tidak ditemukan.' }}</p>
+                <p><strong>Tahun Lulus:</strong> {{ $alumnis->tahunLulus->tahun_lulus ?? 'Tahun Lulus tidak ditemukan.' }}</p>
             </div>
         </div>
     </div>

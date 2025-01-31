@@ -4,7 +4,7 @@
     --secondary-color: #454466; /* Abu tua */
     --bg-light: #47536b; /* Abu sangat gelap */
     --bg-dark: #121417; /* Hitam pekat */
-    --accent-color: #ffffff; /* cerah */
+    --accent-color: #ffffff; /* Cerah */
     --accent-hover: #43a047; /* Hijau lebih gelap saat hover */
 }
 
@@ -83,71 +83,107 @@ nav {
     border-color: var(--bg-dark);
 }
 
-/* Profil info yang dipindah ke kanan tengah */
-.info-profil {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 300px;
+/* --- INFO USER (DI SAMPING TEKS "SELAMAT DATANG, ALUMNI") --- */
+.top-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.info {
+    max-width: 600px;
+    text-align: left;
+}
+
+/* Kotak Profil User */
+.profile-info {
+    display: flex;
+    align-items: center;
     background-color: var(--primary-color);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 10;
+    margin-top: 20px;
+    max-width: 500px;
+    width: 100%;
 }
 
-.tabel-profil {
+/* Foto Profil */
+.profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    margin-right: 15px;
+}
+
+/* Detail Profil */
+.profile-details {
     display: flex;
     flex-direction: column;
-    gap: 15px;
     color: var(--accent-color);
 }
 
-.profil {
-    display: flex;
-    justify-content: center;
-}
-
-.profil img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-}
-
-.profil-item p {
+.profile-details p {
+    margin: 5px 0;
     font-size: 14px;
     font-weight: normal;
-    margin: 5px 0;
 }
 
-/* Logout Button */
+/* Responsif: Jika di layar kecil, tata letak berubah */
+@media (max-width: 768px) {
+    .top-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-info {
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+/* --- TOMBOL LOGOUT --- */
 .logout-btn {
-    background-color: transparent;
-    border: none;
-    color: var(--accent-color);
+    background: none;
+    border: 2px solid red;
+    color: red;
+    padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
+    border-radius: 10px;
+    transition: all 0.3s ease;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
 }
 
 .logout-btn img {
     width: 20px;
     height: 20px;
+    filter: brightness(0) saturate(100%) invert(19%) sepia(89%) saturate(5740%) hue-rotate(357deg) brightness(99%) contrast(111%);
+    transition: all 0.3s ease;
 }
 
 .logout-btn:hover {
-    background-color: var(--accent-hover);
-    color: var(--bg-dark);
+    background: red;
+    color: black;
+    border-color: black;
 }
 
-/* Footer */
+.logout-btn:hover img {
+    filter: brightness(0) invert(1);
+}
+
+/* --- FOOTER --- */
 .footer {
     background: #1a237e;
     color: white;

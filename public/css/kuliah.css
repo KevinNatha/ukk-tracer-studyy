@@ -58,8 +58,9 @@
     background-color: var(--secondary-color);
 }
 
+/* Hapus efek hover */
 .table tr:hover {
-    background-color: var(--bg-dark);
+    background-color: unset !important;
 }
 
 /* Button */

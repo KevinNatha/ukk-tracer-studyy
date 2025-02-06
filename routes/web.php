@@ -86,6 +86,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
             ]);
     });
 
+    Route::delete('/testimoni/{id}', [TestimoniController::class, 'destroy'])->name('testimoni.destroy');
+
+
     Route::prefix('admin/dataAlumni')->group(function () {
         Route::get('/', [AdminAlumniController::class, 'index'])->name('admin.alumni.index');
         Route::get('detail/{id}', [AdminAlumniController::class, 'show'])->name('alumni.show');

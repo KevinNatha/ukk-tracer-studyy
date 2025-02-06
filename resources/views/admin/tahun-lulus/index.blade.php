@@ -66,12 +66,7 @@
                     <td>
                         <a href="{{ route('tahun-lulus.edit', $tahun->id_tahun_lulus) }}" class="btn btn-warning">Edit</a>
 
-                        <!-- Add Delete Button -->
-                        <form action="{{ route('tahun-lulus.destroy', $tahun->id_tahun_lulus) }}" method="POST" style="display: inline;" onsubmit="return confirm('Apakah Anda yakin ingin menghapus tahun lulus ini?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
+                        
                     </td>
                 </tr>
                 @endforeach

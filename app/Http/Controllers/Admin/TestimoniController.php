@@ -62,10 +62,10 @@ class TestimoniController extends Controller
      */
     public function destroy($id)
     {
-        // Hapus data testimoni
         $testimoni = Testimoni::findOrFail($id);
         $testimoni->delete();
-
-        return redirect()->route('admin.testimoni.index')->with('success', 'Testimoni berhasil dihapus.');
+    
+        return response()->json(['success' => true]);
     }
+    
 }

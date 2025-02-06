@@ -125,27 +125,21 @@
                 <label>
                     <input type="checkbox" onclick="togglePassword()"> Show Password
                 </label>
+                
             </div>
             <button type="submit">Login</button>
         </form>
 
-        <p>Atau</p>
-        <div class="login-icons">
-            <a href="">
-                <img src="{{ asset('icons/gogle.png') }}" alt="Google Login" style="width: 50px; height: auto;">
-            </a>
-            <a href="">
-                <img src="{{ asset('icons/facebook.png') }}" alt="Facebook Login" style="width: 50px; height: auto;">
-            </a>
-            <a href="">
-                <img src="{{ asset('icons/apple.png') }}" alt="Apple Login" style="width: 50px; height: auto;">
-            </a>
-        </div>
+        
 
 
         <div class="extra-links">
             <p>Don't have an account? <a href="{{ route('register') }}">Register</a></p>
+            <div class="forgot-password">
+                <a href="{{ route('password.request') }}">Lupa Password?</a>
+            </div>
         </div>
+        
     </div>
 
     <script>

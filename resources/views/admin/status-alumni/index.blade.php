@@ -65,12 +65,7 @@
                         <td>{{ $status->status }}</td>
                         <td class="action">
                             <a href="{{ route('status-alumni.edit', $status->id_status_alumni) }}" class="btn btn-warning">Edit</a>
-                            <!-- Tombol Hapus -->
-                            <form action="{{ route('status-alumni.destroy', $status->id_status_alumni) }}" method="POST" style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this status?')">Delete</button>
-                            </form>
+                            
                         </td>
                     </tr>
                 @endforeach

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -5,7 +6,6 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,6 @@
         /* CSS untuk Select2 */
         .select2-container .select2-selection--single {
             height: 38px;
-            /* Tinggi elemen dropdown agar seimbang dengan input lainnya */
             padding: 6px 12px;
             font-size: 14px;
             border: 1px solid #ccc;
@@ -25,7 +24,6 @@
 
         .select2-container .select2-selection--single .select2-selection__rendered {
             line-height: 24px;
-            /* Agar teks tidak terpotong */
         }
 
         .select2-container .select2-selection--single .select2-selection__arrow {
@@ -36,7 +34,6 @@
         .select2-dropdown {
             border-radius: 4px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            /* Efek bayangan untuk dropdown */
         }
 
         .select2-results__option {
@@ -46,7 +43,6 @@
 
         .select2-results__option--highlighted {
             background-color: #4782B2;
-            /* Warna saat hover */
             color: #fff;
         }
 
@@ -68,14 +64,13 @@
             color: var(--text-color);
         }
 
-       /* Menengahkan teks "Create Testimoni" */
+        /* Menengahkan teks "Create Testimoni" */
         h2 {
             text-align: center;
-            font-size: 68px; /* Perbesar teks */
-            font-weight: bold; /* Buat lebih tegas */
-            color: #1A2189; /* Warna teks */
+            font-size: 68px;
+            font-weight: bold;
+            color: #1A2189;
         }
-
 
         /* Styling untuk form */
         form {
@@ -161,8 +156,8 @@
                 font-size: 14px;
             }
 
-            h1 {
-                font-size: 24px;
+            h2 {
+                font-size: 32px;
             }
         }
 
@@ -197,7 +192,7 @@
             </div>
             <div class="mb-3">
                 <label for="tgl_testimoni" class="form-label">Tanggal Testimoni</label>
-                <input type="date" class="form-control" id="tgl_testimoni" name="tgl_testimoni" value="{{ old('tgl_testimoni') }}" required>
+                <input type="text" class="form-control" id="tgl_testimoni" name="tgl_testimoni" readonly required>
             </div>
             <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
@@ -209,19 +204,20 @@
         $('#id_alumni').select2({
             placeholder: "Cari dan pilih nama alumni...",
             allowClear: true,
-            width: '100%' // Pastikan dropdown Select2 menyesuaikan lebar input
+            width: '100%'
         });
 
         // Tangkap event change
         $('#id_alumni').on('change', function() {
-            // Ambil teks dari opsi yang dipilih
             const selectedText = $(this).find('option:selected').text();
-
-            // Update input dengan nama alumni yang dipilih
             $('#selected_alumni_name').val(selectedText);
         });
+
+        // Set tanggal hari ini dalam format lokal (YYYY-MM-DD)
+        let today = new Date();
+        let formattedDate = today.toISOString().split('T')[0]; // Format YYYY-MM-DD
+        $('#tgl_testimoni').val(formattedDate);
     });
 </script>
-
 
 </html>

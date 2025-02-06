@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pengaturan Privasi Alumni</title>
+    <title>Data Testimoni</title>
     <link rel="stylesheet" href="{{ asset('css/tahun.css') }}">
     <link rel="stylesheet" href="{{ asset('css/nav_admin.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -15,15 +15,13 @@
             margin: 0;
         }
 
-        /* Centering Data Testimoni Title */
         h2 {
-            text-align: center;  /* Memusatkan teks */
-            color: #ffffff;      /* Menetapkan warna hijau */
-            font-size: 2rem;     /* Ukuran font */
-            margin-bottom: 20px; /* Spasi di bawah teks */
+            text-align: center;
+            color: #ffffff;
+            font-size: 2rem;
+            margin-bottom: 20px;
         }
 
-        /* Table styles for better presentation */
         .table {
             width: 100%;
             border-collapse: collapse;
@@ -45,7 +43,6 @@
             background-color: #f9f9f9;
         }
 
-        /* Button for delete */
         .btn-danger {
             background-color: #f44336;
             color: white;
@@ -59,7 +56,6 @@
             background-color: #d32f2f;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .table {
                 font-size: 14px;
@@ -111,17 +107,20 @@
             </thead>
             <tbody>
                 @foreach($testimonis as $testimoni)
-                <tr>
+                <tr id="row-{{ $testimoni->id_testimoni }}">
                     <td>{{ $testimoni->id_testimoni }}</td>
-                    <td>{{ $testimoni->alumni->nama_depan }} {{ $testimoni->alumni->nama_belakang }}</td>
+                    <td>
+                        @if ($testimoni->alumni)
+                            {{ $testimoni->alumni->nama_depan }} {{ $testimoni->alumni->nama_belakang }}
+                        @else
+                            <span style="color: red;">Data Alumni Tidak Tersedia</span>
+                        @endif
+                    </td>
+                    
                     <td>{{ $testimoni->testimoni }}</td>
                     <td>{{ $testimoni->tgl_testimoni }}</td>
                     <td>
-                        <form action="{{ route('testimoni.destroy', $testimoni->id_testimoni) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Hapus</button>
-                        </form>
+                        <button type="button" class="btn btn-danger" onclick="hapusTestimoni({{ $testimoni->id_testimoni }})">Hapus</button>
                     </td>
                 </tr>
                 @endforeach
@@ -130,6 +129,26 @@
     </div>
 
     <script src="{{ asset('js/admin.js') }}"></script>
+
+    <script>
+        function hapusTestimoni(id) {
+            if (confirm("Apakah Anda yakin ingin menghapus testimoni ini?")) {
+                fetch("{{ url('/testimoni') }}/" + id, {
+                    method: "DELETE",
+                    headers: {
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Testimoni berhasil dihapus.");
+                        document.getElementById("row-" + id).remove();
+                    }
+                });
+            }
+        }
+    </script>
 
     <footer class="footer">
         <div class="footer-content">
